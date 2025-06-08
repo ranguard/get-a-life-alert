@@ -1,40 +1,65 @@
-Device: PS5-BF0E3F
-NumbersToSMS:
-    - 077116771828:
-        isAdmin: true,
-        MessageWhenRemainingMins:
-            -   TimeLeft: 20
-                Message: "10 mins remaining"
-            -   TimeLeft: 10
-                Message: "Time is up"
-            -   TimeLeft: 0
-                Message: "Internet blocked"
+# Get A Life Alert Configuration
+fritz:
+  url: "http://192.168.178.1"
+  device_name: "Leos-11"  # Device to monitor from Fritz parental controls
+
+# Time rules by day (example schedule)
 TimeRulesByDay:
-    Monday:
-        StartTime: 9am
-        EndTime: 6:30am
-        TotalTimeAllowed: 2:10
-    Tuesday:
-        StartTime: 9am
-        EndTime: 6:30am
-        TotalTimeAllowed: 2:10
-    Wednesday:
-        StartTime: 9am
-        EndTime: 6:30am
-        TotalTimeAllowed: 2:10
-    Thursday:
-        StartTime: 9am
-        EndTime: 6:30am
-        TotalTimeAllowed: 2:10
-    Friday:
-        StartTime: 9am
-        EndTime: 6:30am
-        TotalTimeAllowed: 2:10
-    Saturday:
-        StartTime: 9am
-        EndTime: 6:30am
-        TotalTimeAllowed: 4:10
-    Sunday:
-        StartTime: 9am
-        EndTime: 6:30am
-        TotalTimeAllowed: 4:10       
+  monday:
+    start: "16:00"
+    end: "20:00"
+    max_minutes: 120
+  tuesday:
+    start: "16:00"
+    end: "20:00"
+    max_minutes: 120
+  wednesday:
+    start: "16:00"
+    end: "20:00"
+    max_minutes: 120
+  thursday:
+    start: "16:00"
+    end: "20:00"
+    max_minutes: 120
+  friday:
+    start: "16:00"
+    end: "22:00"
+    max_minutes: 180
+  saturday:
+    start: "10:00"
+    end: "22:00"
+    max_minutes: 300
+  sunday:
+    start: "10:00"
+    end: "20:00"
+    max_minutes: 240
+
+# SMS Configuration
+NumbersToSMS:
+  - number: "+1234567890"
+    isAdmin: true
+    MessageWhenRemainingMins:
+      - minutes: 30
+        message: "Hey! You have 30 minutes of internet time left today. Use it wisely!"
+      - minutes: 15
+        message: "Only 15 minutes left! Time to wrap up what you're doing."
+      - minutes: 5
+        message: "Last 5 minutes of internet time! Better finish up now."
+      - minutes: 0
+        message: "Internet time is up for today! Time to get a life! 😊"
+  
+  - number: "+0987654321"
+    isAdmin: false
+    MessageWhenRemainingMins:
+      - minutes: 15
+        message: "15 minutes of internet left! Start finishing up."
+      - minutes: 0
+        message: "Internet time finished! Go do something else now."
+
+# Cron schedule (every 5 minutes)
+cron_schedule: "*/5 * * * *"
+
+# Logging
+logging:
+  level: "info"
+  file: "logs/get-a-life-alert.log"

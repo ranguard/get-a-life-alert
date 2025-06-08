@@ -1,5 +1,15 @@
-FRITZ_USER=f-user
-FRITZ_PASSWD=f-passwd
+# Fritz Router Credentials
+FRITZ_USER=your_fritz_username
+FRITZ_PASSWD=your_fritz_password
 
-TWILOW_ACCOUNT_SID=123
-TWILOW_AUTH_TOKEN=abc
+# Twilio API Credentials
+TWILIO_ACCOUNT_SID=your_twilio_account_sid
+TWILIO_AUTH_TOKEN=your_twilio_auth_token
+TWILIO_PHONE_NUMBER=+1234567890
+
+# Application Settings
+NODE_ENV=production
+LOG_LEVEL=info
+
+# Database
+DB_PATH=./data/alerts.db
