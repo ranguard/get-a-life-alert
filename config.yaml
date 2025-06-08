@@ -1,0 +1,40 @@
+Device: PS5-BF0E3F
+NumbersToSMS:
+    - 077116771828:
+        isAdmin: true,
+        MessageWhenRemainingMins:
+            -   TimeLeft: 20
+                Message: "10 mins remaining"
+            -   TimeLeft: 10
+                Message: "Time is up"
+            -   TimeLeft: 0
+                Message: "Internet blocked"
+TimeRulesByDay:
+    Monday:
+        StartTime: 9am
+        EndTime: 6:30am
+        TotalTimeAllowed: 2:10
+    Tuesday:
+        StartTime: 9am
+        EndTime: 6:30am
+        TotalTimeAllowed: 2:10
+    Wednesday:
+        StartTime: 9am
+        EndTime: 6:30am
+        TotalTimeAllowed: 2:10
+    Thursday:
+        StartTime: 9am
+        EndTime: 6:30am
+        TotalTimeAllowed: 2:10
+    Friday:
+        StartTime: 9am
+        EndTime: 6:30am
+        TotalTimeAllowed: 2:10
+    Saturday:
+        StartTime: 9am
+        EndTime: 6:30am
+        TotalTimeAllowed: 4:10
+    Sunday:
+        StartTime: 9am
+        EndTime: 6:30am
+        TotalTimeAllowed: 4:10       
